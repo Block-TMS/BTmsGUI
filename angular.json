@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BTmsGUI:build:production"
+              "buildTarget": "BTmsGUI:build:production"
             },
             "development": {
-              "browserTarget": "BTmsGUI:build:development"
+              "buildTarget": "BTmsGUI:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BTmsGUI:build"
+            "buildTarget": "BTmsGUI:build"
           }
         },
         "test": {
@@ -94,13 +94,28 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": "286234b7-414c-4960-afd5-95ab66225bb6"
   }
 }

@@ -1,0 +1,14 @@
+@if(isMobile){
+  <app-phone-layout>
+    <div fxFlex style="height: 100%">
+      <app-qr-scanner></app-qr-scanner>
+    </div>
+    <app-phone-nav-bar></app-phone-nav-bar>
+  </app-phone-layout>
+} @else {
+  <app-desktop-layout>
+    <div fxFlex>
+      <img fxFlex style="width: 100%" src="assets/BlockTMSlogo.svg" alt="logo"/>
+    </div>
+  </app-desktop-layout>
+}
