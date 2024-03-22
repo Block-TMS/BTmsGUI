@@ -4,17 +4,20 @@ import { FlexModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { type ZXingScannerComponent, ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BehaviorSubject, distinctUntilChanged, map, type Observable, shareReplay } from 'rxjs';
+import {SharedModule} from "../shared.module";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
     selector: 'app-qr-scanner',
     templateUrl: './qr-scanner.component.html',
     styleUrls: ['./qr-scanner.component.scss'],
-    imports: [
-        CommonModule,
-        FlexModule,
-        MatButtonModule,
-        ZXingScannerModule
-    ],
+  imports: [
+    CommonModule,
+    FlexModule,
+    MatButtonModule,
+    ZXingScannerModule,
+    SharedModule
+  ],
     standalone: true
 })
 export class QrScannerComponent{
