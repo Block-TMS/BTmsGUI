@@ -1,6 +1,9 @@
 @if(isMobile){
   <app-phone-layout>
-    <app-qr-scanner></app-qr-scanner>
+    <div fxFlexFill fxLayoutAlign="center center" style="background-color: black">
+      <app-qr-scanner></app-qr-scanner>
+    </div>
+    <app-phone-nav-bar></app-phone-nav-bar>
   </app-phone-layout>
 } @else {
   <app-desktop-layout>

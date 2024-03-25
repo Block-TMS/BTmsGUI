@@ -1,8 +1,6 @@
-<div fxFlex fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="center center" style="padding-top: 100px;">
+<div fxFlex fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="center center" class="scanner-body">
   <zxing-scanner
-    class="scanner"
     #scanner
-    *ngIf="scanning"
     [enable]="(enable$ | async) ?? false"
     [autostart]="true"
     [device]="(selectedDevice$ | async) ?? undefined"
@@ -10,8 +8,9 @@
     (scanSuccess)="scanSuccess($event)"
     (scanError)="scanError($event)"
   >
-    <img src="assets/QRScanFrame.png" class="qr-scanner" style="z-index: 3;">
   </zxing-scanner>
   {{scanRes}}
-  <button *ngIf="!scanning" mat-button (click)="scanning = true">Scan again</button>
+</div>
+<div fxFlex fxLayoutAlign="center center" class="scan-frame">
+  <img src="assets/QRScanFrame.png" class="frame" alt="scan-frame">
 </div>

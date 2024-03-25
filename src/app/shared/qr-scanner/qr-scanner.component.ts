@@ -6,6 +6,7 @@ import { type ZXingScannerComponent, ZXingScannerModule } from '@zxing/ngx-scann
 import { BehaviorSubject, distinctUntilChanged, map, type Observable, shareReplay } from 'rxjs';
 import {SharedModule} from "../shared.module";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-qr-scanner',
@@ -22,7 +23,6 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 })
 export class QrScannerComponent{
   @ViewChild('scanner') scanner!: ZXingScannerComponent;
-  scanning = true;
   scanRes = '';
   devices$ = new BehaviorSubject<MediaDeviceInfo[]>([]);
 
@@ -38,9 +38,13 @@ export class QrScannerComponent{
 
   startCamera = true;
 
+  constructor(private router: Router) {
+  }
+
   public scanSuccess (event: string): void {
   	this.scanRes = event;
-  	this.scanning = false;
+    console.log(event);
+    this.router.navigate([`/user/chain-history`, event]);
   }
 
   public scanError (error: Error): void {

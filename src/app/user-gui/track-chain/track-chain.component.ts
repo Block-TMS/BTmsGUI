@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import {QrScannerComponent} from "../../shared/qr-scanner/qr-scanner.component";
 import {SharedModule} from "../../shared/shared.module";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @Component({
   selector: 'app-track-chain',
   standalone: true,
   imports: [
     QrScannerComponent,
-    SharedModule
+    SharedModule,
+    FlexLayoutModule
   ],
   templateUrl: './track-chain.component.html',
   styleUrl: './track-chain.component.scss'
