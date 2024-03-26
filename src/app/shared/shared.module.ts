@@ -6,6 +6,7 @@ import { PhoneNavBarComponent } from './phone-nav-bar/phone-nav-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterLink } from '@angular/router';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
     declarations: [
@@ -18,11 +19,12 @@ import { RouterLink } from '@angular/router';
         PhoneNavBarComponent,
         PhoneLayoutComponent
     ],
-    imports: [
-        CommonModule,
-        MatIconModule,
-        FlexLayoutModule,
-        RouterLink,
-    ]
+	imports: [
+		CommonModule,
+		MatIconModule,
+		FlexLayoutModule,
+		RouterLink,
+		MatProgressSpinnerModule,
+	]
 })
 export class SharedModule { }

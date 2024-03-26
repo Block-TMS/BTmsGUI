@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from "@angular/core";
 
 @Component({
     selector: 'app-phone-layout',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./phone-layout.component.scss']
 })
 export class PhoneLayoutComponent {
-
+  @Input() loading: boolean = true;
 }

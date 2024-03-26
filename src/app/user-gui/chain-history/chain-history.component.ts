@@ -29,9 +29,8 @@ export class ChainHistoryComponent implements OnInit{
       this.isMobile = result.matches;
     });
   }
-
-  ngOnInit(): void {
-    // Retrieve id from route parameters
+  
+  public ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
     });

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild} from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FlexModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,29 +21,34 @@ import {Router} from "@angular/router";
   ],
     standalone: true
 })
-export class QrScannerComponent{
+export class QrScannerComponent implements OnInit{
   @ViewChild('scanner') scanner!: ZXingScannerComponent;
-  scanRes = '';
-  devices$ = new BehaviorSubject<MediaDeviceInfo[]>([]);
+  devices = new BehaviorSubject<MediaDeviceInfo[]>([]);
 
-  selectedDevice$: Observable<MediaDeviceInfo> = this.devices$.pipe(
+  selectedDevice: Observable<MediaDeviceInfo> = this.devices.pipe(
   	map((device) => device[0]),
   	distinctUntilChanged(),
-  	shareReplay(1)
+  	shareReplay(1),
   );
 
-  enable$ = this.devices$.pipe(map(Boolean));
+  enable = this.devices.pipe(map(Boolean));
 
-  toggleCamera$ = new BehaviorSubject<boolean>(false);
+  @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>()
+
+  //toggleCamera = new BehaviorSubject<boolean>(false);
 
   startCamera = true;
 
   constructor(private router: Router) {
   }
 
+  public ngOnInit() {
+    this.enable.subscribe(res => {
+      this.loading.emit(res);
+    })
+  }
+
   public scanSuccess (event: string): void {
-  	this.scanRes = event;
-    console.log(event);
     this.router.navigate([`/user/chain-history`, event]);
   }
 

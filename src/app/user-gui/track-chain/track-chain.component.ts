@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from "@angular/core";
 import {QrScannerComponent} from "../../shared/qr-scanner/qr-scanner.component";
 import {SharedModule} from "../../shared/shared.module";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
@@ -15,9 +15,11 @@ import {FlexLayoutModule} from "@angular/flex-layout";
   templateUrl: './track-chain.component.html',
   styleUrl: './track-chain.component.scss'
 })
-export class TrackChainComponent {
+export class TrackChainComponent{
 
   public isMobile: boolean = false;
+
+  public loading: boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([

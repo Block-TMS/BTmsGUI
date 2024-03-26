@@ -1,9 +1,8 @@
 @if(isMobile){
-  <app-phone-layout>
+  <app-phone-layout [loading]="false">
     <div fxFlex>
       <img fxFlex style="width: 100%" src="assets/BlockTMSlogo.svg" alt="logo"/>
     </div>
-    <app-phone-nav-bar></app-phone-nav-bar>
   </app-phone-layout>
 } @else {
   <app-desktop-layout>
