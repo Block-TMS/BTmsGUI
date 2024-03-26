@@ -1,0 +1,13 @@
+.scan-frame{
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.frame {
+  width: 40%;
+}

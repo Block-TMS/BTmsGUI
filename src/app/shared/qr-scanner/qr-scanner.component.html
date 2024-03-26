@@ -1,0 +1,15 @@
+<div fxFlex fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="center center" class="scanner-body">
+  <zxing-scanner
+    #scanner
+    [enable]="(enable | async) ?? false"
+    [autostart]="true"
+    [device]="(selectedDevice | async) ?? undefined"
+    (camerasFound)="devices.next($event)"
+    (scanSuccess)="scanSuccess($event)"
+    (scanError)="scanError($event)"
+  >
+  </zxing-scanner>
+</div>
+<div fxFlex fxLayoutAlign="center center" class="scan-frame">
+  <img src="assets/QRScanFrame.png" class="frame" alt="scan-frame">
+</div>

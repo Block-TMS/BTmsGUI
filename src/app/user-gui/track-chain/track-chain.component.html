@@ -1,0 +1,11 @@
+@if(isMobile){
+  <app-phone-layout [loading]="loading">
+    <div fxFlexFill fxLayoutAlign="center center" style="background-color: black">
+      <app-qr-scanner (loading)="loading = false"></app-qr-scanner>
+    </div>
+  </app-phone-layout>
+} @else {
+  <app-desktop-layout>
+    <app-qr-scanner></app-qr-scanner>
+  </app-desktop-layout>
+}
