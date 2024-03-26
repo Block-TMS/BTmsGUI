@@ -1,0 +1,30 @@
+@if(isMobile){
+  <app-phone-layout [loading]="false">
+    <div fxLayout="row">
+      <mat-icon class="icon-size-40">login</mat-icon>
+      <h1>Login</h1>
+    </div>
+    <div class="full-width" fxLayoutAlign="center center" fxLayout="column">
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput>
+        <mat-icon matSuffix>visibility</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="full-width" fxLayoutAlign="space-between center" fxLayout="row">
+      <button mat-raised-button color="primary" routerLink="/user/signup">Create account <mat-icon>person</mat-icon></button>
+      <button mat-raised-button color="accent">Login <mat-icon>login</mat-icon></button>
+    </div>
+  </app-phone-layout>
+} @else {
+  <app-desktop-layout>
+    <div fxFlex>
+      <img fxFlex style="width: 100%" src="assets/BlockTMSlogo.svg" alt="logo"/>
+    </div>
+  </app-desktop-layout>
+}

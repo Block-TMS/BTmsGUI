@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./phone-nav-bar.component.scss']
 })
 export class PhoneNavBarComponent {
-
+  public signedIn: boolean = false;
 }
