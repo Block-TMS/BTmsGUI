@@ -4,6 +4,7 @@ import {QrScannerComponent} from "../../shared/qr-scanner/qr-scanner.component";
 import {SharedModule} from "../../shared/shared.module";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {ActivatedRoute} from "@angular/router";
+import {TrackChainService} from "../../services/track-chain.service";
 
 @Component({
   selector: 'app-chain-history',
@@ -17,11 +18,11 @@ import {ActivatedRoute} from "@angular/router";
   styleUrl: './chain-history.component.scss'
 })
 export class ChainHistoryComponent implements OnInit{
-  id: string | null = null; // Initialize id as null or appropriate default value
-
+  id: string = '';
+  loading: boolean = true;
   public isMobile: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private breakpointObserver: BreakpointObserver) {
+  constructor(private activatedRoute: ActivatedRoute, private breakpointObserver: BreakpointObserver, private trackChainService: TrackChainService){
     this.breakpointObserver.observe([
       Breakpoints.Handset,
       Breakpoints.Small,
@@ -29,10 +30,14 @@ export class ChainHistoryComponent implements OnInit{
       this.isMobile = result.matches;
     });
   }
-  
+
   public ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
+      this.trackChainService.getChainHistory(this.id).subscribe((data: any) => {
+        this.id = data.id;
+        this.loading = false;
+      });
     });
   }
 }

@@ -5,6 +5,7 @@ import { UserGuiRoutingModule } from './user-gui-routing.module';
 import {HomeComponent} from "./home/home.component";
 import {SharedModule} from "../shared/shared.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CommonModule,
     UserGuiRoutingModule,
     SharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ]
 })
 export class UserGuiModule { }

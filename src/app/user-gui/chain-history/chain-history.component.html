@@ -1,5 +1,5 @@
 @if(isMobile){
-  <app-phone-layout>
+  <app-phone-layout [loading]="loading">
     <h1>{{ id }}</h1>
   </app-phone-layout>
 } @else {

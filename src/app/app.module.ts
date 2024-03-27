@@ -9,6 +9,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from './shared/shared.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
         MatButtonModule,
         MatIconModule,
         SharedModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
