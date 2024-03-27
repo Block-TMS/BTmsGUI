@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild} from "@angular/core";
+import { Component, EventEmitter, OnInit, Output, ViewChild} from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FlexModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,6 +6,7 @@ import { type ZXingScannerComponent, ZXingScannerModule } from '@zxing/ngx-scann
 import { BehaviorSubject, distinctUntilChanged, map, type Observable, shareReplay } from 'rxjs';
 import {SharedModule} from "../shared.module";
 import {Router} from "@angular/router";
+
 
 @Component({
     selector: 'app-qr-scanner',

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from "@angular/core";
+import { Component} from "@angular/core";
 import {QrScannerComponent} from "../../shared/qr-scanner/qr-scanner.component";
 import {SharedModule} from "../../shared/shared.module";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
