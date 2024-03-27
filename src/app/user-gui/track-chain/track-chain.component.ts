@@ -19,7 +19,7 @@ export class TrackChainComponent{
 
   public isMobile: boolean = false;
 
-  public loading: boolean = false;
+  public loading: boolean = true;
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([
