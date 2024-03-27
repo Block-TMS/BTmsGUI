@@ -1,18 +1,25 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" class="fixed-pos-bottom">
   <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/home">
-    <mat-icon class="icon-size-40">home</mat-icon>
-    <p>Home</p>
+    <mat-icon class="icon-size-25">home</mat-icon>
+    <p class="font-size-12">Home</p>
   </div>
   <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/track-chain">
-    <mat-icon class="icon-size-40">qr_code</mat-icon>
-    <p>Scan QR</p>
+    <mat-icon class="icon-size-25">qr_code</mat-icon>
+    <p class="font-size-12">Scan QR</p>
   </div>
   <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/chain-history">
-    <mat-icon class="icon-size-40">history</mat-icon>
-    <p>History</p>
+    <mat-icon class="icon-size-25">history</mat-icon>
+    <p class="font-size-12">History</p>
   </div>
-  <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/profile">
-    <mat-icon class="icon-size-40">person</mat-icon>
-    <p>Profile</p>
-  </div>
+  @if(signedIn) {
+    <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/profile">
+      <mat-icon class="icon-size-25">person</mat-icon>
+      <p class="font-size-12">Profile</p>
+    </div>
+  } @else {
+    <div fxLayout="column" fxLayoutAlign="center center" routerLink="/user/login">
+      <mat-icon class="icon-size-25">login</mat-icon>
+      <p class="font-size-12">Login</p>
+    </div>
+  }
 </div>
